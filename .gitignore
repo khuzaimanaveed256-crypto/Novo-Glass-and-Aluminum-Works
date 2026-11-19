@@ -1,0 +1,21 @@
+# Scratch / development files - do NOT deploy
+scratch/
+scratch_*.py
+*.py
+mirrors_row*.png
+preview_*.png
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# Node (if ever used)
+node_modules/
+npm-debug.log*
+
+# Vercel local
+.vercel/

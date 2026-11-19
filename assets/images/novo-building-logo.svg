@@ -1,0 +1,55 @@
+<svg class="novo-architectural-logo" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2B2" />
+      <stop offset="30%" stop-color="#FFD700" />
+      <stop offset="65%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+    <linearGradient id="goldGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C583" />
+      <stop offset="50%" stop-color="#B8860B" />
+      <stop offset="100%" stop-color="#593D00" />
+    </linearGradient>
+    <linearGradient id="goldGradSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#AA7C11" />
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Stepped building column 1 (leftmost) -->
+  <rect x="18" y="66" width="10" height="34" rx="1.5" fill="url(#goldGradLight)" />
+  <!-- Stepped building column 2 (middle left) -->
+  <rect x="31" y="50" width="12" height="50" rx="1.5" fill="url(#goldGradLight)" />
+  
+  <!-- Main building front face -->
+  <polygon points="46,38 102,16 102,96 46,98" fill="url(#goldGradLight)" />
+  <!-- Window frames on front face (2x2 grid) -->
+  <polygon points="51,46 70,39 70,66 51,69" fill="#0C0C10" />
+  <polygon points="75,37 97,28 97,62 75,65" fill="#0C0C10" />
+  <polygon points="51,72 70,69 70,93 51,94" fill="#0C0C10" />
+  <polygon points="75,68 97,65 97,91 75,92" fill="#0C0C10" />
+  
+  <!-- Main building perspective side (right) -->
+  <polygon points="102,16 134,30 134,84 102,96" fill="url(#goldGradDark)" />
+  <!-- Windows on perspective side -->
+  <polygon points="108,25 128,34 128,52 108,44" fill="#0C0C10" />
+  <polygon points="108,48 128,56 128,74 108,66" fill="#0C0C10" />
+
+  <!-- Window mullion divider lines in gold -->
+  <line x1="72.5" y1="35" x2="72.5" y2="94" stroke="url(#goldGradSheen)" stroke-width="2.5" />
+  <line x1="49" y1="67.5" x2="99" y2="64.5" stroke="url(#goldGradSheen)" stroke-width="2.5" />
+  <line x1="108" y1="49.5" x2="128" y2="57.5" stroke="url(#goldGradSheen)" stroke-width="2" />
+  <line x1="118" y1="28" x2="118" y2="76" stroke="url(#goldGradSheen)" stroke-width="2" />
+
+  <!-- Architectural gold base outline beam -->
+  <polygon points="16,100 136,86 136,90 16,104" fill="url(#goldGradLight)" />
+
+  <!-- Sleek golden swoosh baseline curving up -->
+  <path d="M10 106 C 50 104, 110 94, 150 70 C 120 86, 60 99, 10 106 Z" fill="url(#goldGradSheen)" />
+</svg>
