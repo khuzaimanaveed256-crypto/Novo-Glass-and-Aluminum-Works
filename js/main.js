@@ -566,15 +566,31 @@
   function setupMobileMenu() {
     if (!DOM.mobileMenuBtn || !DOM.mobileDrawer) return;
 
+    const closeDrawer = () => {
+      DOM.mobileDrawer.classList.remove('is-open');
+      DOM.mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
     DOM.mobileMenuBtn.addEventListener('click', () => {
       const isOpen = DOM.mobileDrawer.classList.toggle('is-open');
       DOM.mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', closeDrawer);
+    }
+
+    DOM.mobileDrawer.addEventListener('click', (e) => {
+      if (e.target === DOM.mobileDrawer) {
+        closeDrawer();
+      }
     });
 
     document.querySelectorAll('.drawer-link').forEach(link => {
-      link.addEventListener('click', () => {
-        DOM.mobileDrawer.classList.remove('is-open');
-      });
+      link.addEventListener('click', closeDrawer);
     });
   }
 

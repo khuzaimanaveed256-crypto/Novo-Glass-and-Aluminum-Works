@@ -5874,7 +5874,7 @@ body.is-loading {
   transform: translateX(4px);
 }
 
-/* 7. Sliding Doors & Windows: Balanced 3-column grid */
+/* 7. Sliding Doors & Windows: Balanced 4-column grid (desktop) */
 .section-doors-windows .gallery-products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -5883,40 +5883,66 @@ body.is-loading {
 }
 
 .section-doors-windows .gallery-product-media {
-  aspect-ratio: 4 / 4.4;
-  height: 450px;
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 4 / 3.8 !important;
+  height: 380px !important;
+  background: radial-gradient(circle at center, #181822 0%, #09090c 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px !important;
+  overflow: hidden !important;
+}
+
+.section-doors-windows .gallery-product-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
 }
 
 /* 8. Craftsmanship / Atelier Signature Mirror */
 .card-media {
   position: relative !important;
   aspect-ratio: 16 / 10 !important;
-  min-height: 380px !important;
+  width: 100% !important;
+  height: 340px !important;
   overflow: hidden !important;
   background: radial-gradient(circle at center, #181822 0%, #08080a 100%) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 14px !important;
+  padding: 0 !important;
 }
 
 .card-media img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center !important;
   display: block !important;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.75)) !important;
   transition: transform 0.65s var(--ease-cinematic) !important;
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   MASTER RESPONSIVE & MOBILE PERFECTION SUITE (Desktop, Tablet, Mobile)
+   Tested across 320px, 375px, 390px, 430px, 768px, 1024px, 1200px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A. Tablet & Medium Screens (max-width: 1200px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
+  .section-bathroom-showers .gallery-products-grid.shower-cabins-grid,
   .section-staircase-glass .gallery-products-grid.staircase-grid,
+  .section-shower-partitions .gallery-products-grid,
   .section-doors-windows .gallery-products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.8rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.8rem !important;
   }
+
   .section-balcony-glass .gallery-products-grid.balcony-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     max-width: 900px !important;
@@ -5931,44 +5957,612 @@ body.is-loading {
     margin: 0 auto !important;
     width: 100% !important;
   }
-  .section-balcony-glass .gallery-product-media {
-    height: 350px !important;
-    min-height: 350px !important;
-    max-height: 350px !important;
-  }
-  .section-shower-partitions .gallery-products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
   .mirror-product-media {
     height: 340px !important;
   }
-}
-
-@media (max-width: 768px) {
-  .mirror-product-media {
-    height: 320px !important;
+  .section-bathroom-showers .gallery-product-media {
+    height: 420px !important;
   }
-  .section-staircase-glass .gallery-products-grid.staircase-grid,
-  .section-shower-partitions .gallery-products-grid,
-  .section-doors-windows .gallery-products-grid {
-    grid-template-columns: 1fr;
-    gap: 1.6rem;
-  }
-  .section-balcony-glass .gallery-products-grid.balcony-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.6rem !important;
-    max-width: 460px !important;
-  }
-  .section-balcony-glass .gallery-products-grid.balcony-grid .gallery-product-card:nth-child(5) {
-    grid-column: span 1 !important;
-    max-width: 100% !important;
+  .section-staircase-glass .gallery-product-media {
+    height: 380px !important;
   }
   .section-balcony-glass .gallery-product-media {
     height: 320px !important;
-    min-height: 320px !important;
+  }
+  .section-doors-windows .gallery-product-media {
+    height: 320px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   B. Small Tablet & Large Mobile (max-width: 991px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .gallery-products-grid,
+  .gallery-products-grid-3,
+  .mirrors-collection-grid,
+  .section-bathroom-showers .gallery-products-grid.shower-cabins-grid,
+  .section-staircase-glass .gallery-products-grid.staircase-grid,
+  .section-shower-partitions .gallery-products-grid,
+  .section-doors-windows .gallery-products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  .section-balcony-glass .gallery-products-grid.balcony-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   C. Mobile Devices (max-width: 640px)
+   Applies to 320px, 375px, 390px, 430px, 480px, 600px, 640px
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  /* 1. Global Viewport & Section Overflow Fixes */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+
+  .site-header {
+    padding: 0.8rem 1rem !important;
+    height: auto !important;
+  }
+  .header-inner {
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .brand-logo {
+    gap: 0.6rem !important;
+  }
+  .header-logo-img {
+    width: 42px !important;
+    height: auto !important;
+  }
+  .logo-text-bold {
+    font-size: 1.05rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  .logo-text-sub {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  /* 2. Mobile Hamburger Toggle */
+  .mobile-menu-btn {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 10px !important;
+    background: rgba(198, 164, 91, 0.14) !important;
+    border: 1px solid rgba(198, 164, 91, 0.45) !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: background 0.25s ease, border-color 0.25s ease !important;
+  }
+  .mobile-menu-btn span {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    background-color: #E5C583 !important;
+    border-radius: 2px !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+  }
+  .mobile-menu-btn[aria-expanded="true"] span:first-child {
+    transform: translateY(3.5px) rotate(45deg) !important;
+  }
+  .mobile-menu-btn[aria-expanded="true"] span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg) !important;
+  }
+
+  /* 3. Mobile Navigation Drawer */
+  .mobile-drawer {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(7, 7, 9, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 99999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 4.5rem 1.25rem 2.5rem !important;
+    box-sizing: border-box !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    transition: opacity 0.35s ease, visibility 0.35s ease !important;
+  }
+  .mobile-drawer.is-open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+  .drawer-inner {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+  .drawer-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+  }
+  .drawer-link {
+    font-family: var(--font-display, 'Cinzel', serif) !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.08em !important;
+    color: #F5F5F5 !important;
+    padding: 0.45rem 0.6rem !important;
+    border-radius: 6px !important;
+    transition: color 0.25s ease, background 0.25s ease !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  .drawer-link:hover, .drawer-link:active {
+    color: #0c0c0e !important;
+    background: linear-gradient(135deg, #C6A45B 0%, #DFBE74 100%) !important;
+  }
+  .drawer-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    width: 100% !important;
+  }
+
+  /* 4. Section Containers & Spacing */
+  .section-gallery,
+  .section-mirrors,
+  .section-services,
+  .section-contact {
+    padding: 3.5rem 0 4rem !important;
+  }
+  .gallery-container,
+  .mirrors-container,
+  .contact-container,
+  .services-container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .gallery-heading-block,
+  .section-heading-block {
+    margin-bottom: 2.2rem !important;
+  }
+  .gallery-title,
+  .section-title {
+    font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important;
+  }
+  .gallery-lead {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    padding: 0 0.25rem !important;
+    margin: 0.8rem auto 0 !important;
+  }
+
+  /* 5. STRICT 1-COLUMN PRODUCT GRIDS (NO SQUEEZING 3 CARDS!) */
+  .mirrors-collection-grid,
+  .gallery-products-grid,
+  .gallery-products-grid-3,
+  .section-bathroom-showers .gallery-products-grid.shower-cabins-grid,
+  .section-shower-partitions .gallery-products-grid,
+  .section-staircase-glass .gallery-products-grid.staircase-grid,
+  .section-balcony-glass .gallery-products-grid.balcony-grid,
+  .section-doors-windows .gallery-products-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.6rem !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-balcony-glass .gallery-products-grid.balcony-grid .gallery-product-card:nth-child(n) {
+    grid-column: span 1 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* 6. Product Cards General Mobile Polish */
+  .gallery-product-card,
+  .mirror-product-card {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65) !important;
+    border: 1px solid rgba(198, 164, 91, 0.24) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .gallery-product-details,
+  .mirror-product-details {
+    padding: 1.35rem 1.15rem 1.15rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .gallery-product-title,
+  .mirror-product-title {
+    font-size: 1.15rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.55rem !important;
+  }
+
+  .gallery-product-desc,
+  .mirror-product-desc {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .gallery-product-footer,
+  .mirror-product-footer {
+    padding-top: 0.95rem !important;
+  }
+
+  .gallery-inquire-btn,
+  .btn-open-quote {
+    padding: 0.65rem 1.15rem !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  /* 7. ALL PRODUCT PICTURES - PROPORTIONAL, CENTERED, BEAUTIFUL DISPLAY */
+
+  /* (a) LED Mirrors */
+  .mirror-product-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 300px !important;
+    min-height: 280px !important;
     max-height: 320px !important;
+    aspect-ratio: auto !important;
+    background: radial-gradient(circle at center, #1c1c28 0%, #08080a 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 14px !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(198, 164, 91, 0.15) !important;
+    box-sizing: border-box !important;
   }
-  .gallery-product-media {
-    height: 380px;
+  .mirror-product-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: auto !important;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.85)) !important;
   }
+
+  /* (b) Bathroom Shower Cabins (Complete Cabin Visible Top to Bottom) */
+  .section-bathroom-showers .gallery-product-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 360px !important;
+    min-height: 340px !important;
+    max-height: 380px !important;
+    aspect-ratio: auto !important;
+    background: radial-gradient(circle at center, #1a1a24 0%, #08080b 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(198, 164, 91, 0.15) !important;
+    box-sizing: border-box !important;
+  }
+  .section-bathroom-showers .gallery-product-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: auto !important;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.8)) !important;
+  }
+
+  /* (c) Luxury Office Partitions (Edge-to-Edge Architectural Presence) */
+  .section-shower-partitions .gallery-product-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 250px !important;
+    min-height: 240px !important;
+    max-height: 280px !important;
+    aspect-ratio: auto !important;
+    background: #0d0d10 !important;
+    display: block !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(198, 164, 91, 0.15) !important;
+  }
+  .section-shower-partitions .gallery-product-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* (d) Staircase Glass Railings (Full Floating Glass Structure Centered) */
+  .section-staircase-glass .gallery-product-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 340px !important;
+    min-height: 320px !important;
+    max-height: 360px !important;
+    aspect-ratio: auto !important;
+    background: radial-gradient(circle at center, #191922 0%, #08080a 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(198, 164, 91, 0.15) !important;
+    box-sizing: border-box !important;
+  }
+  .section-staircase-glass .gallery-product-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: auto !important;
+    filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.8)) !important;
+  }
+
+  /* (e) Terrace Glass Railings (Balanced Proportions, No Empty Void) */
+  .section-balcony-glass .gallery-product-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 240px !important;
+    min-height: 230px !important;
+    max-height: 260px !important;
+    aspect-ratio: auto !important;
+    background: radial-gradient(circle at center, #181822 0%, #09090c 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(198, 164, 91, 0.15) !important;
+    box-sizing: border-box !important;
+  }
+  .section-balcony-glass .gallery-product-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: auto !important;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.8)) !important;
+  }
+
+  /* (f) Aluminium Sliding Doors & Windows */
+  .section-doors-windows .gallery-product-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 280px !important;
+    min-height: 260px !important;
+    max-height: 300px !important;
+    aspect-ratio: auto !important;
+    background: radial-gradient(circle at center, #181822 0%, #09090c 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(198, 164, 91, 0.15) !important;
+    box-sizing: border-box !important;
+  }
+  .section-doors-windows .gallery-product-media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: auto !important;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.8)) !important;
+  }
+
+  /* (g) Craftsmanship Card */
+  .card-media {
+    height: 250px !important;
+    min-height: 240px !important;
+    padding: 0 !important;
+  }
+  .card-media img {
+    object-fit: cover !important;
+  }
+
+  /* 8. Contact Section & WhatsApp Card Polish */
+  .contact-card-frame {
+    padding: 2rem 1.25rem !important;
+    border-radius: 16px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .contact-title {
+    font-size: clamp(1.35rem, 5vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    word-break: break-word !important;
+  }
+  .contact-tagline {
+    font-size: 0.95rem !important;
+  }
+  .contact-subtext {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+  }
+  .contact-info-list {
+    gap: 1.2rem !important;
+  }
+  .info-val {
+    font-size: 0.88rem !important;
+    word-break: break-word !important;
+  }
+  .whatsapp-card {
+    padding: 1.8rem 1.15rem !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+  }
+  .whatsapp-card-title {
+    font-size: 1.25rem !important;
+  }
+  .whatsapp-card-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .whatsapp-cta-btn {
+    padding: 0.95rem 1.2rem !important;
+    font-size: 0.78rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   D. Extra Small Mobile Devices (max-width: 375px)
+   iPhone SE, Galaxy S mini, 320px - 375px
+   -------------------------------------------------------------------------- */
+@media (max-width: 375px) {
+  .gallery-container,
+  .mirrors-container,
+  .contact-container,
+  .services-container {
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+  }
+
+  .gallery-title,
+  .section-title {
+    font-size: 1.35rem !important;
+  }
+
+  .mirror-product-media {
+    height: 260px !important;
+    min-height: 250px !important;
+    padding: 8px 10px !important;
+  }
+
+  .section-bathroom-showers .gallery-product-media {
+    height: 310px !important;
+    min-height: 300px !important;
+  }
+
+  .section-shower-partitions .gallery-product-media {
+    height: 220px !important;
+  }
+
+  .section-staircase-glass .gallery-product-media {
+    height: 300px !important;
+  }
+
+  .section-balcony-glass .gallery-product-media {
+    height: 210px !important;
+  }
+
+  .section-doors-windows .gallery-product-media {
+    height: 240px !important;
+  }
+
+  .contact-card-frame {
+    padding: 1.6rem 0.9rem !important;
+  }
+
+  .whatsapp-card {
+    padding: 1.5rem 0.9rem !important;
+  }
+
+  .gallery-product-details,
+  .mirror-product-details {
+    padding: 1.1rem 0.9rem 0.9rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   E. Ultra Narrow (max-width: 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 320px) {
+  .logo-text-bold {
+    font-size: 0.95rem !important;
+  }
+  .logo-text-sub {
+    font-size: 0.5rem !important;
+  }
+  .mirror-product-media {
+    height: 240px !important;
+  }
+  .section-bathroom-showers .gallery-product-media {
+    height: 280px !important;
+  }
+  .section-staircase-glass .gallery-product-media {
+    height: 270px !important;
+  }
+}
+
+
+.drawer-close-btn {
+  position: absolute !important;
+  top: 1.25rem !important;
+  right: 1.25rem !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(198, 164, 91, 0.15) !important;
+  border: 1px solid rgba(198, 164, 91, 0.45) !important;
+  border-radius: 50% !important;
+  color: #E5C583 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 100000 !important;
+  transition: all 0.25s ease !important;
+}
+
+.drawer-close-btn:hover {
+  background: #C6A45B !important;
+  color: #0c0c0e !important;
+  transform: scale(1.05) !important;
 }
