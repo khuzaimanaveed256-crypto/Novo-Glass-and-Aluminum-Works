@@ -1020,9 +1020,9 @@ a {
 }
 
 .mirror-product-media.is-contain img {
-  object-fit: contain;
-  padding: 1.2rem;
-  background: radial-gradient(ellipse at center, rgba(22, 22, 28, 0.9) 0%, #08080a 100%);
+  object-fit: cover !important;
+  padding: 0 !important;
+  background: none !important;
 }
 
 /* ── Elegant empty-state placeholder (no image) ── */
@@ -5627,80 +5627,83 @@ body.is-loading {
 }
 
 /* (b) Unified Image Containers (Centered, Balanced Proportions, No Empty Void) */
+/* --------------------------------------------------------------------------
+   EDGE-TO-EDGE LUXURY PRODUCT IMAGE PRESENTATION (DESKTOP & GLOBAL)
+   Every product image fills 100% width and 100% height from edge to edge.
+   Zero black side gaps, zero empty padding, object-fit: cover, centered.
+   -------------------------------------------------------------------------- */
 .gallery-product-media,
-.mirror-product-media {
+.mirror-product-media,
+.mirror-product-media.is-contain {
   position: relative !important;
   width: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: block !important;
   overflow: hidden !important;
-  background: radial-gradient(circle at center, #1c1c28 0%, #08080c 100%) !important;
+  background: #0d0d12 !important;
   border-bottom: 1px solid rgba(198, 164, 91, 0.16) !important;
   box-sizing: border-box !important;
-  padding: 12px !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* Image scaling inside containers:
-   width: 100%; height: 100%; object-fit: contain ensures images expand to use
-   the FULL available container dimensions, centered, with ZERO distortion and ZERO cropping */
 .gallery-product-media img,
-.mirror-product-media img {
+.mirror-product-media img,
+.mirror-product-media.is-contain img {
   width: 100% !important;
   height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center !important;
   display: block !important;
-  margin: auto !important;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.8)) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  filter: none !important;
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease !important;
 }
 
 .gallery-product-card:hover .gallery-product-media img,
 .mirror-product-card:hover .mirror-product-media img {
-  transform: scale(1.035) !important;
-  filter: drop-shadow(0 15px 32px rgba(198, 164, 91, 0.25)) brightness(1.05) !important;
+  transform: scale(1.05) !important;
+  filter: brightness(1.05) !important;
 }
 
-/* Desktop heights tuned to category aspect ratios */
+/* Desktop heights - edge-to-edge full bleed coverage */
 .section-mirrors .mirror-product-media {
   height: 360px !important;
-  aspect-ratio: 4 / 4.6 !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
 }
 
 .section-bathroom-showers .gallery-product-media {
-  height: 440px !important;
-  aspect-ratio: 3 / 4 !important;
-  padding: 8px !important;
+  height: 420px !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
 }
 
 .section-shower-partitions .gallery-product-media {
   height: 320px !important;
-  aspect-ratio: 16 / 11 !important;
+  aspect-ratio: auto !important;
   padding: 0 !important;
-}
-.section-shower-partitions .gallery-product-media img {
-  object-fit: cover !important;
 }
 
 .section-staircase-glass .gallery-product-media {
-  height: 420px !important;
-  aspect-ratio: 3 / 4 !important;
-  padding: 8px !important;
+  height: 400px !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
 }
 
 .section-balcony-glass .gallery-product-media {
   height: 320px !important;
-  aspect-ratio: 16 / 10 !important;
-  padding: 8px !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
 }
 
 .section-doors-windows .gallery-product-media {
-  height: 340px !important;
-  aspect-ratio: 4 / 3.6 !important;
-  padding: 10px !important;
+  height: 330px !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
 }
 
 /* Craftsmanship Signature Showcase */
@@ -5709,7 +5712,8 @@ body.is-loading {
   width: 100% !important;
   height: 340px !important;
   overflow: hidden !important;
-  background: #000 !important;
+  background: #0d0d12 !important;
+  padding: 0 !important;
 }
 .card-media img {
   width: 100% !important;
@@ -5717,6 +5721,8 @@ body.is-loading {
   object-fit: cover !important;
   object-position: center !important;
   display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
   transition: transform 0.65s ease !important;
 }
 
@@ -6098,107 +6104,82 @@ body.is-loading {
     flex-direction: column !important;
   }
 
-  /* Universal Media Container Centering & Fit */
+  /* Universal Media Container Centering & Fit (Edge to Edge) */
   .gallery-product-media,
-  .mirror-product-media {
+  .mirror-product-media,
+  .mirror-product-media.is-contain {
     position: relative !important;
     width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: block !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #0d0d12 !important;
   }
 
   .gallery-product-media img,
-  .mirror-product-media img {
+  .mirror-product-media img,
+  .mirror-product-media.is-contain img {
     display: block !important;
+    width: 100% !important;
+    height: 100% !important;
     max-width: 100% !important;
     max-height: 100% !important;
-    margin: auto !important;
-  }
-
-  /* (a) LED Mirrors (Square & Round Mirrors - snug 250px framing) */
-  .section-mirrors .mirror-product-media {
-    height: 250px !important;
-    padding: 8px 10px !important;
-    background: radial-gradient(circle at center, #1d1d2a 0%, #08080c 100%) !important;
-  }
-  .section-mirrors .mirror-product-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
-  }
-
-  /* (b) Bathroom Shower Cabins (Complete full cabin visible from top to bottom - 290px) */
-  .section-bathroom-showers .gallery-product-media {
-    height: 290px !important;
-    padding: 6px !important;
-    background: radial-gradient(circle at center, #1a1a26 0%, #08080c 100%) !important;
-  }
-  .section-bathroom-showers .gallery-product-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
-  }
-
-  /* (c) Luxury Office Partitions (Landscape / Panoramic - 220px) */
-  .section-shower-partitions .gallery-product-media {
-    height: 220px !important;
-    padding: 0 !important;
-    background: #0d0d10 !important;
-  }
-  .section-shower-partitions .gallery-product-media img {
-    width: 100% !important;
-    height: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    filter: none !important;
   }
 
-  /* (d) Staircase Glass Railings (Vertical / Diagonal Railings - 275px) */
-  .section-staircase-glass .gallery-product-media {
-    height: 275px !important;
-    padding: 6px !important;
-    background: radial-gradient(circle at center, #191924 0%, #08080c 100%) !important;
-  }
-  .section-staircase-glass .gallery-product-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
+  /* (a) LED Mirrors (Edge to Edge) */
+  .section-mirrors .mirror-product-media {
+    height: 280px !important;
+    padding: 0 !important;
+    background: #0d0d12 !important;
   }
 
-  /* (e) Terrace Glass Railings (16:9 Landscape / Panoramic Balconies - 205px) */
-  .section-balcony-glass .gallery-product-media {
-    height: 205px !important;
-    padding: 4px !important;
-    background: radial-gradient(circle at center, #181824 0%, #08080c 100%) !important;
-  }
-  .section-balcony-glass .gallery-product-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
+  /* (b) Bathroom Shower Cabins (Edge to Edge) */
+  .section-bathroom-showers .gallery-product-media {
+    height: 330px !important;
+    padding: 0 !important;
+    background: #0d0d12 !important;
   }
 
-  /* (f) Aluminium Sliding Doors & Windows (240px) */
-  .section-doors-windows .gallery-product-media {
+  /* (c) Luxury Office Partitions (Edge to Edge) */
+  .section-shower-partitions .gallery-product-media {
     height: 240px !important;
-    padding: 6px !important;
-    background: radial-gradient(circle at center, #181824 0%, #08080c 100%) !important;
-  }
-  .section-doors-windows .gallery-product-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
+    padding: 0 !important;
+    background: #0d0d12 !important;
   }
 
-  /* (g) Craftsmanship Card */
+  /* (d) Staircase Glass Railings (Edge to Edge) */
+  .section-staircase-glass .gallery-product-media {
+    height: 300px !important;
+    padding: 0 !important;
+    background: #0d0d12 !important;
+  }
+
+  /* (e) Terrace Glass Railings (Edge to Edge) */
+  .section-balcony-glass .gallery-product-media {
+    height: 230px !important;
+    padding: 0 !important;
+    background: #0d0d12 !important;
+  }
+
+  /* (f) Aluminium Sliding Doors & Windows (Edge to Edge) */
+  .section-doors-windows .gallery-product-media {
+    height: 250px !important;
+    padding: 0 !important;
+    background: #0d0d12 !important;
+  }
+
+  /* (g) Craftsmanship Card (Edge to Edge) */
   .card-media {
-    height: 220px !important;
+    height: 230px !important;
+    padding: 0 !important;
   }
 
   /* Compact Card Details & Zero Dead-Space Typography Polish */
@@ -6279,28 +6260,33 @@ body.is-loading {
   }
 
   .section-mirrors .mirror-product-media {
-    height: 235px !important;
-    padding: 6px 8px !important;
+    height: 250px !important;
+    padding: 0 !important;
   }
 
   .section-bathroom-showers .gallery-product-media {
-    height: 275px !important;
+    height: 290px !important;
+    padding: 0 !important;
   }
 
   .section-shower-partitions .gallery-product-media {
-    height: 200px !important;
+    height: 220px !important;
+    padding: 0 !important;
   }
 
   .section-staircase-glass .gallery-product-media {
-    height: 255px !important;
+    height: 270px !important;
+    padding: 0 !important;
   }
 
   .section-balcony-glass .gallery-product-media {
-    height: 195px !important;
+    height: 210px !important;
+    padding: 0 !important;
   }
 
   .section-doors-windows .gallery-product-media {
-    height: 220px !important;
+    height: 230px !important;
+    padding: 0 !important;
   }
 
   .contact-card-frame {
